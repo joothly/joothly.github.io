@@ -1,7 +1,7 @@
 /* fonts */
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-Thin.ttf') format('ttf');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Thin.ttf") format("ttf");
   font-weight: 100;
 }
 
@@ -14,10 +14,10 @@
 
   --number-of-letters: 7;
   --letter-animation-delay: 0.125s;
-  --full-title-animation-delay: calc(var(--letter-animation-delay) * var(--number-of-letters));
-
+  --full-title-animation-delay: calc(
+    var(--letter-animation-delay) * var(--number-of-letters)
+  );
   --social-icon-size: 100px;
-
   --title-size: 72px;
 }
 
@@ -35,7 +35,9 @@
 
 /* global */
 
-*, ::after, ::before {
+*,
+::after,
+::before {
   box-sizing: border-box;
 }
 
@@ -47,7 +49,8 @@ img::selection {
   background: none;
 }
 
-html, body {
+html,
+body {
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -72,7 +75,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a, button {
+a,
+button {
   -webkit-tap-highlight-color: rgba(#000, 0);
   -webkit-tap-highlight-color: transparent;
 }
@@ -124,8 +128,12 @@ button:focus {
 }
 
 @keyframes visibility-hack {
-  from { visibility: hidden; }
-  to { visibility: visible; }
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
+  }
 }
 
 /* classes */
@@ -177,7 +185,6 @@ button:focus {
 }
 
 .title__letter:nth-child(1) {
-  color: var(--c1);
   animation-delay: calc(var(--letter-animation-delay) * 1);
 }
 
@@ -225,19 +232,27 @@ button:focus {
 }
 
 .socialbar__item:nth-child(1) {
-  animation-delay: calc(var(--full-title-animation-delay) + (var(--letter-animation-delay) * 4));
+  animation-delay: calc(
+    var(--full-title-animation-delay) + (var(--letter-animation-delay) * 4)
+  );
 }
 
 .socialbar__item:nth-child(2) {
-  animation-delay: calc(var(--full-title-animation-delay) + (var(--letter-animation-delay) * 5));
+  animation-delay: calc(
+    var(--full-title-animation-delay) + (var(--letter-animation-delay) * 5)
+  );
 }
 
 .socialbar__item:nth-child(3) {
-  animation-delay: calc(var(--full-title-animation-delay) + (var(--letter-animation-delay) * 6));
+  animation-delay: calc(
+    var(--full-title-animation-delay) + (var(--letter-animation-delay) * 6)
+  );
 }
 
 .socialbar__item:nth-child(4) {
-  animation-delay: calc(var(--full-title-animation-delay) + (var(--letter-animation-delay) * 7));
+  animation-delay: calc(
+    var(--full-title-animation-delay) + (var(--letter-animation-delay) * 7)
+  );
 }
 
 .socialbar__link,
