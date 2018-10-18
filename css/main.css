@@ -284,7 +284,7 @@ button:focus {
   width: var(--social-icon-size);
   height: var(--social-icon-size);
   border-radius: 50%;
-  border: 0.1rem solid var(--c1);
+  border: 2px solid var(--c1);
   overflow: hidden;
   transition: all 0.8s ease;
 }
