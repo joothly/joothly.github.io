@@ -183,7 +183,6 @@ button:focus {
   margin-bottom: 0;
 }
 .socialbar__item {
-  margin-bottom: 20px;
   margin-right: 10px;
   margin-left: 10px;
   transform: translateZ(0);
@@ -210,7 +209,11 @@ button:focus {
 .socialbar__link:active, .socialbar__link:focus, .socialbar__link:hover {
   text-decoration: none;
 }
+.socialbar__link:active .socialbar__icon__img, .socialbar__link:focus .socialbar__icon__img, .socialbar__link:hover .socialbar__icon__img {
+  color: #d42;
+}
 .socialbar__icon {
+  position: relative;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -218,31 +221,15 @@ button:focus {
   overflow: hidden;
   transition: all 0.8s ease;
 }
-.socialbar__link:active .socialbar__icon, .socialbar__link:focus .socialbar__icon, .socialbar__link:hover .socialbar__icon {
-  transform: rotateY(360deg);
-}
 .socialbar__icon__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-.socialbar__label {
   position: absolute;
+  top: 50%;
   left: 50%;
-  bottom: 0;
-  z-index: 1;
-  display: block;
-  width: 33px;
-  height: 33px;
-  padding: 8px;
-  background-color: #d42;
+  width: 45%;
   color: #fff;
-  border-radius: 50%;
-  transform: translate(-50%, 50%) translateZ(100px);
+  transform: translate(-50%, -50%);
+  transition: color 0.2s ease;
 }
-.socialbar__label > svg {
+.socialbar__icon__img > * {
   display: block;
-  width: 100%;
-  height: auto;
 }

@@ -159,6 +159,7 @@ button:focus {
 
 .socialbar {
   $link: #{&}__link;
+  $img: #{&}__icon__img;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -168,7 +169,6 @@ button:focus {
   margin-bottom: 0;
 
   &__item {
-    margin-bottom: 20px;
     margin-right: 10px;
     margin-left: 10px;
     transform: translateZ(0);
@@ -189,10 +189,15 @@ button:focus {
     &:focus,
     &:hover {
       text-decoration: none;
+
+      #{$img} {
+        color: $c-orange;
+      }
     }
   }
 
   &__icon {
+    position: relative;
     width: $s-icon;
     height: $s-icon;
     border-radius: 50%;
@@ -200,38 +205,18 @@ button:focus {
     overflow: hidden;
     transition: all $a-icon-duration $a-function;
 
-    #{$link}:active &,
-    #{$link}:focus &,
-    #{$link}:hover & {
-      transform: rotateY(360deg);
-    }
-
     &__img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-  }
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 45%;
+      color: $c-white;
+      transform: translate(-50%, -50%);
+      transition: color 0.2s $a-function;
 
-  &__label {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    z-index: 1;
-    display: block;
-    width: 33px;
-    height: 33px;
-    padding: 8px;
-    background-color: $c-orange;
-    color: $c-white;
-    border-radius: 50%;
-    transform: translate(-50%, 50%) translateZ($s-icon);
-
-    > svg {
-      display: block;
-      width: 100%;
-      height: auto;
+      > * {
+        display: block;
+      }
     }
   }
 }
