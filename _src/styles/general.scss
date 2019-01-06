@@ -1,0 +1,237 @@
+@include fontface;
+
+/* --- general --- */
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+*::selection {
+  background: rgba($c-orange, 0.5);
+}
+
+img::selection {
+  background: none;
+}
+
+html,
+body {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+html {
+  height: 100%;
+  overflow-y: auto;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: $c-grey;
+  color: $c-white;
+  font-family: $t-font-family;
+  min-height: 100%;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: rgba($c-black, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+a:focus,
+button:focus {
+  outline: none;
+}
+
+/* --- animation --- */
+
+@keyframes wave {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(-180deg);
+  }
+  50% {
+    transform: translateY(-25%) rotateY(-45deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes rotateUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) rotateZ(-180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateZ(0);
+  }
+}
+
+@keyframes visibility-hack {
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
+  }
+}
+
+.flip {
+  animation-name: flip;
+  animation-duration: $a-icon-duration;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.rotateUp {
+  animation-name: rotateUp;
+  animation-duration: $a-icon-duration;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease-in-out;
+}
+
+/* --- styles  --- */
+
+.page {
+  padding: 30px 15px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: $s-title-sm;
+
+  @include md {
+    font-size: $s-title-md;
+  }
+
+  @include lg {
+    font-size: $s-title-lg;
+  }
+
+  &__madeby {
+    display: none;
+    position: absolute;
+    font-size: 11px;
+    font-weight: 100;
+    color: $c-white;
+  }
+
+  &__letter {
+    display: block;
+    color: $c-orange;
+    font-weight: 100;
+
+    @include letter-delay($co-letter-count);
+  }
+}
+
+.socialbar {
+  $link: #{&}__link;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  &__item {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    transform: translateZ(0);
+
+    @include icon-delay($co-icon-count);
+  }
+
+  &__link,
+  &__icon {
+    display: block;
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__icon {
+    width: $s-icon;
+    height: $s-icon;
+    border-radius: 50%;
+    border: 2px solid $c-orange;
+    overflow: hidden;
+    transition: all $a-icon-duration $a-function;
+
+    #{$link}:active &,
+    #{$link}:focus &,
+    #{$link}:hover & {
+      transform: rotateY(360deg);
+    }
+
+    &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    z-index: 1;
+    display: block;
+    width: 33px;
+    height: 33px;
+    padding: 8px;
+    background-color: $c-orange;
+    color: $c-white;
+    border-radius: 50%;
+    transform: translate(-50%, 50%) translateZ($s-icon);
+
+    > svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

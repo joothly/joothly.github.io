@@ -1,0 +1,14 @@
+{
+  "name": "joothly.me",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {},
+  "scripts": {
+    "sass": "node node_modules/sass/sass.js --no-source-map styles/main.scss ../css/main.css",
+    "build": "npm run sass"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "sass": "^1.14.3"
+  }
+}

@@ -1,0 +1,24 @@
+// (c)olors
+$c-orange: #d42;
+$c-grey: #212121;
+$c-white: #fff;
+$c-black: #000;
+
+// (co)ntent
+$co-letter-count: 7; // joothly
+$co-icon-count: 4;
+
+// (a)nimation
+$a-letter-delay: 0.125s;
+$a-title-delay: $co-letter-count * $a-letter-delay;
+$a-icon-duration: 0.8s;
+$a-function: ease;
+
+// (s)izes
+$s-title-sm: 72px;
+$s-title-md: 96px;
+$s-title-lg: 120px;
+$s-icon: 100px;
+
+// (t)ypography
+$t-font-family: "Roboto", sans-serif;

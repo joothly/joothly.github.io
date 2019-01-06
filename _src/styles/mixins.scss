@@ -1,0 +1,42 @@
+@mixin fontface {
+  @font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 100;
+    src: local("Roboto Thin"), local("Roboto-Thin"),
+      url("../fonts/roboto/roboto-v18-latin-100.woff2") format("woff2"),
+      url("../fonts/roboto/roboto-v18-latin-100.woff") format("woff");
+  }
+}
+
+@mixin letter-delay($count) {
+  @for $i from 1 through $count {
+    &:nth-child(#{$i}) {
+      animation-delay: ($a-letter-delay * $i);
+    }
+  }
+}
+
+@mixin icon-delay($count) {
+  @for $i from 1 through $count {
+    &:nth-child(#{$i}) {
+      animation-delay: ($a-title-delay + ($a-letter-delay * ($i + 3)));
+    }
+  }
+}
+
+@mixin sm {
+  @content;
+}
+
+@mixin md {
+  @media screen and (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}

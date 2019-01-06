@@ -1,43 +1,10 @@
-/* fonts */
 @font-face {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 100;
-  src: local("Roboto Thin"), local("Roboto-Thin"),
-       url("../fonts/roboto/roboto-v18-latin-100.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url("../fonts/roboto/roboto-v18-latin-100.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local("Roboto Thin"), local("Roboto-Thin"), url("../fonts/roboto/roboto-v18-latin-100.woff2") format("woff2"), url("../fonts/roboto/roboto-v18-latin-100.woff") format("woff");
 }
-
-/* variables */
-
-:root {
-  --c1: #d42;
-  --c2: #333;
-  --c3: #fff;
-
-  --number-of-letters: 7;
-  --letter-animation-delay: 0.125s;
-  --full-title-animation-delay: calc(
-    var(--letter-animation-delay) * var(--number-of-letters)
-  );
-  --social-icon-size: 100px;
-  --title-size: 72px;
-}
-
-@media screen and (min-width: 576px) {
-  :root {
-    --title-size: 96px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  :root {
-    --title-size: 120px;
-  }
-}
-
-/* global */
-
+/* --- general --- */
 *,
 ::after,
 ::before {
@@ -69,8 +36,8 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0;
-  background-color: var(--c2);
-  color: var(--c3);
+  background-color: #212121;
+  color: #fff;
   font-family: "Roboto", sans-serif;
   min-height: 100%;
   text-rendering: geometricPrecision;
@@ -80,7 +47,7 @@ body {
 
 a,
 button {
-  -webkit-tap-highlight-color: rgba(#000, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -93,8 +60,7 @@ button:focus {
   outline: none;
 }
 
-/* keyframes */
-
+/* --- animation --- */
 @keyframes wave {
   0% {
     transform: rotate(0);
@@ -106,7 +72,6 @@ button:focus {
     transform: rotate(0);
   }
 }
-
 @keyframes flip {
   0% {
     transform: rotateY(-180deg);
@@ -118,7 +83,6 @@ button:focus {
     transform: translateY(0) rotate(0);
   }
 }
-
 @keyframes rotateUp {
   0% {
     opacity: 0;
@@ -129,7 +93,6 @@ button:focus {
     transform: translateY(0) rotateZ(0);
   }
 }
-
 @keyframes visibility-hack {
   from {
     visibility: hidden;
@@ -138,9 +101,6 @@ button:focus {
     visibility: visible;
   }
 }
-
-/* classes */
-
 .flip {
   animation-name: flip;
   animation-duration: 0.8s;
@@ -157,65 +117,61 @@ button:focus {
   animation-timing-function: ease-in-out;
 }
 
-/* pages */
-
+/* --- styles  --- */
 .page {
   padding: 30px 15px;
 }
-
-/* title */
 
 .title {
   display: flex;
   justify-content: center;
   margin-top: 0;
   margin-bottom: 30px;
-  font-size: var(--title-size);
+  font-size: 72px;
 }
-
+@media screen and (min-width: 576px) {
+  .title {
+    font-size: 96px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 120px;
+  }
+}
 .title__madeby {
   display: none;
   position: absolute;
   font-size: 11px;
   font-weight: 100;
-  color: var(--c3);
+  color: #fff;
 }
-
 .title__letter {
   display: block;
-  color: var(--c1);
+  color: #d42;
   font-weight: 100;
 }
-
 .title__letter:nth-child(1) {
-  animation-delay: calc(var(--letter-animation-delay) * 1);
+  animation-delay: 0.125s;
 }
-
 .title__letter:nth-child(2) {
-  animation-delay: calc(var(--letter-animation-delay) * 2);
+  animation-delay: 0.25s;
 }
-
 .title__letter:nth-child(3) {
-  animation-delay: calc(var(--letter-animation-delay) * 3);
+  animation-delay: 0.375s;
 }
-
 .title__letter:nth-child(4) {
-  animation-delay: calc(var(--letter-animation-delay) * 4);
+  animation-delay: 0.5s;
 }
-
 .title__letter:nth-child(5) {
-  animation-delay: calc(var(--letter-animation-delay) * 5);
+  animation-delay: 0.625s;
 }
-
 .title__letter:nth-child(6) {
-  animation-delay: calc(var(--letter-animation-delay) * 6);
+  animation-delay: 0.75s;
 }
-
 .title__letter:nth-child(7) {
-  animation-delay: calc(var(--letter-animation-delay) * 7);
+  animation-delay: 0.875s;
 }
-
-/* socialbar */
 
 .socialbar {
   display: flex;
@@ -226,76 +182,51 @@ button:focus {
   margin-top: 0;
   margin-bottom: 0;
 }
-
 .socialbar__item {
   margin-bottom: 20px;
   margin-right: 10px;
   margin-left: 10px;
   transform: translateZ(0);
 }
-
 .socialbar__item:nth-child(1) {
-  animation-delay: calc(
-    var(--full-title-animation-delay) + (var(--letter-animation-delay) * 4)
-  );
+  animation-delay: 1.375s;
 }
-
 .socialbar__item:nth-child(2) {
-  animation-delay: calc(
-    var(--full-title-animation-delay) + (var(--letter-animation-delay) * 5)
-  );
+  animation-delay: 1.5s;
 }
-
 .socialbar__item:nth-child(3) {
-  animation-delay: calc(
-    var(--full-title-animation-delay) + (var(--letter-animation-delay) * 6)
-  );
+  animation-delay: 1.625s;
 }
-
 .socialbar__item:nth-child(4) {
-  animation-delay: calc(
-    var(--full-title-animation-delay) + (var(--letter-animation-delay) * 7)
-  );
+  animation-delay: 1.75s;
 }
-
-.socialbar__link,
-.socialbar__icon {
+.socialbar__link, .socialbar__icon {
   display: block;
 }
-
 .socialbar__link {
   position: relative;
-}
-
-.socialbar__link,
-.socialbar__link:active,
-.socialbar__link:focus,
-.socialbar__link:hover {
   text-decoration: none;
 }
-
-.socialbar__link:active .socialbar__icon,
-.socialbar__link:focus .socialbar__icon,
-.socialbar__link:hover .socialbar__icon {
-  transform: rotateY(360deg);
+.socialbar__link:active, .socialbar__link:focus, .socialbar__link:hover {
+  text-decoration: none;
 }
-
 .socialbar__icon {
-  width: var(--social-icon-size);
-  height: var(--social-icon-size);
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  border: 2px solid var(--c1);
+  border: 2px solid #d42;
   overflow: hidden;
   transition: all 0.8s ease;
 }
-
+.socialbar__link:active .socialbar__icon, .socialbar__link:focus .socialbar__icon, .socialbar__link:hover .socialbar__icon {
+  transform: rotateY(360deg);
+}
 .socialbar__icon__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
-
 .socialbar__label {
   position: absolute;
   left: 50%;
@@ -305,12 +236,11 @@ button:focus {
   width: 33px;
   height: 33px;
   padding: 8px;
-  background-color: var(--c1);
-  color: var(--c3);
+  background-color: #d42;
+  color: #fff;
   border-radius: 50%;
-  transform: translate(-50%, 50%) translateZ(var(--social-icon-size));
+  transform: translate(-50%, 50%) translateZ(100px);
 }
-
 .socialbar__label > svg {
   display: block;
   width: 100%;
